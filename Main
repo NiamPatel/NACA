@@ -1,0 +1,21 @@
+def calculate_naca_code(max_camber_inches, camber_position_inches, chord_length_inches, max_thickness_inches):
+    # Calculate percentages
+    max_camber_percent = (max_camber_inches / chord_length_inches) * 100
+    camber_position_percent = (camber_position_inches / chord_length_inches) * 10
+    max_thickness_percent = (max_thickness_inches / chord_length_inches) * 100
+
+    # Format NACA code
+    naca_code = f"NACA {int(max_camber_percent)}{int(camber_position_percent)}{int(max_thickness_percent):02d}"
+    return naca_code
+
+# Get user input
+max_camber_inches = float(input("Enter the maximum camber in inches: "))
+camber_position_inches = float(input("Enter the position of maximum camber from the leading edge in inches: "))
+chord_length_inches = float(input("Enter the chord length in inches: "))
+max_thickness_inches = float(input("Enter the maximum thickness in inches: "))
+
+# Calculate NACA code
+naca_code = calculate_naca_code(max_camber_inches, camber_position_inches, chord_length_inches, max_thickness_inches)
+
+# Print the result
+print(f"The NACA 4-digit code is: {naca_code}")
